@@ -20,4 +20,21 @@ describe('User CRUD', function() {
         expect(res.statusCode).to.equal(200);
         expect(res.body.name).to.equal(updateUser.name);
     });
+
+    // it('Read user', async function() {
+    //     let res = await userHelper.readUser(agent, userId);
+    //     console.log("res", res)
+    //     expect(res.statusCode).to.equal(200);
+    //     expect(res.body.name).to.equal(updateUser.name);
+    // });
+
+    it('Delete user', async function() {
+        let res = await userHelper.deleteUser(agent, userId);
+        expect(res.statusCode).to.equal(204);
+    });
+
+    // it('Read user Not found', async function() {
+    //     let res = await userHelper.readUser(agent, userId);
+    //     expect(res.statusCode).to.equal(404);
+    // });
 });

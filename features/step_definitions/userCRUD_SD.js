@@ -26,3 +26,11 @@ Then('check that user was updated', function () {
     expect(this.res.statusCode).to.equal(200);
     expect(this.res.body.name).to.equal(updateUser.name);
 });
+
+When('user delete', async function () {
+    this.res = await userHelper.deleteUser(agent, this.userId);
+});
+
+Then('check that user was deleted', function () {
+    expect(this.res.statusCode).to.equal(204);
+});
